@@ -11,13 +11,13 @@
 			<tr>	
 				<td>id</td>
 				<td>Titulo</td>
-				<td>Noticia</td>
-			</tr>
+		    </tr>
+            <% for (var i=0;i<noticias.length;i++) { %>
 			<tr>
-				<td><%=noticia[0].id_noticia%></td>
-				<td><%=noticia[0].titulo%></td>
-				<td><%=noticia[0].noticia%></td>
-			</tr>
+				<td><%=noticias[i].id_noticia%></td>
+				<td><%=noticias[i].titulo%></td>
+		    </tr>
+            <% } %>
 		</table>
 	</body>
 </html>

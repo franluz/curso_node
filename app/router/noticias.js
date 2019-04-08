@@ -1,14 +1,11 @@
-var knex = require('../../config/dbConnection')
-module.exports = (app)=>{
-	app.get('/noticias',(req,res,next)=>{
-	
-	knex('noticias').then((dados)=>{
-//		res.send(dados);
-		res.render('noticias/noticia',{noticias:dados});
-	},next);
-
-	//res.render('noticias/noticias');
-
+ module.exports = (application)=>{
+	application.get('/noticias',(req,res,next)=>{
+	 const knex = application.config.dbConnection;
+	 var noticiasModel = application.app.models.noticiasModel;
+	 noticiasModel.getNoticias(knex,(dados)=>{
+	 	res.render('noticias/noticias',{noticias:dados});
+	 });
+	  //	 console.log(application);
 });	
 }
 
